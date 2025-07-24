@@ -24,20 +24,11 @@
             }else{
                 $tarefa['concluida'] = '';
             }
-            $_SESSION['lista_tarefas'][] = $tarefa;
+            gravar_tarefas($conexao, $tarefa);
 
             $lita_tarefas = buscar_tarefas($conexao)
 
             function buscar_tarefas($conexao)
-            {
-                $sqlBusca = 'SELECT * FROM tarefas';
-                $resultado = mysqli_query($conexao, $sqlBusca);
-                $tarefas = array();
-                while ($tarefa = mysqli_fetch_assoc($resultado)) {
-                    $tarefas[] = $tarefa;
-                }
-            return $tarefas;
-            }
     }
         include "template.php"
 ?>
