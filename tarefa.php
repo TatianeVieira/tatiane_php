@@ -5,14 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gerenciador de tarefas</title>
+    <title>gerenciador de cadastro</title>
 </head>
 <body>
-    <h1>gerenciador de tarefas</h1>
+    <h1>gerenciador de cadastro</h1>
     <form>
         <fieldset>
             <legend>Nova tarefa</legend>
-            <label> tarefa:
+            <label> cadastro:
                 <input type="text" name="nome" />
                 </label>
                 <input type="submit" value="cadastrar" />
@@ -20,23 +20,23 @@
     </form>
 
     <?php
-        $lista_tarefas = array();
+        $cadastro = array();
         if (isset($_GET['nome'])) {
-            $_SESSION['lista_tarefas'][] = $_GET['nome'];
+            $_SESSION['cadastro'][] = $_GET['nome'];
         }
-        $lista_tarefas =  array();
-        if(isset($_SESSION['lista_tarefas'])) {
-            $lista_tarefas = $_SESSION ['lista_tarefas'];
+        $cadastro =  array();
+        if(isset($_SESSION['cadastro'])) {
+            $cadastro = $_SESSION ['cadastro'];
         }
     ?>
 
     <table>
         <tr>
-            <th>Tarefas</th>
+            <th>cadastro</th>
     </tr>
-    <?php foreach ($lista_tarefas as $tarefa) : ?>
+    <?php foreach ($cadastro as $cadastro) : ?>
         <tr>
-            <td><?php echo $tarefa; ?></td>
+            <td><?php echo $cadastro; ?></td>
     </tr>
     <?php endforeach; ?>
     </table>
