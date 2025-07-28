@@ -1,11 +1,3 @@
-<?php
-require 'conexao.php';
-
-$conexao = conectarBanco();
-$stmt = $conexao -> prepare ("SELECT * FROM cliente");
-$stmt -> execute();
-$clientes = $stmt -> fetchALL();
-?>
 
 <!DOCTYPE html>
 <html lang="PT-BR">
@@ -36,3 +28,11 @@ $clientes = $stmt -> fetchALL();
     </table>
 </body>
 </html>
+<?php
+require 'conexao_.php';
+
+$conexao = conectarBanco();
+$stmt = $conexao -> prepare ("SELECT * FROM cliente");
+$stmt -> execute();
+$clientes = $stmt -> fetchALL();
+?>
