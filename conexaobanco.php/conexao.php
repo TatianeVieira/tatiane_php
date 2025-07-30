@@ -1,22 +1,19 @@
 <?php
-//habilita relatorios detalhados ded erros 
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+    function conectarBanco(){
+        $dsn="mysql:host=localhost;dbname=empresa;charset=utf8";
+        $usuario="root";
+        $senha="";
 
-/**fruncao para conectar ao banco de dados, retorna um objeto de conexao MYSQLI ou interrompe o script em caso de erro. */
-function conectadb() {
-    //configuracao d bd
-    $endereco = "localhost"; 
-    $usuario = "root"; 
-    $senha = "";
-    $banco = "empresa";
-}
-
-try {
-    $con = new sqli($endereco, $usuario, $senha, $banco);
-
-    $con->set_charset("utf8mb4");
-    return $con;
-    } catch(Exception $e){
-        die("erro na conexao: ".$e->getMessage());
+        try{
+            $conexao=new PDO($dsn,$usuario,$senha,[
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+            ]);
+            return $conexao;
+        } catch(PDOException $e) {
+            error_log("Erro ao conectar ao banco: ".$e->getMessage());
+            //log sem expor erro ao usuario
+            die("Erro ao conectar ao banco.");
+        }
     }
 ?>
