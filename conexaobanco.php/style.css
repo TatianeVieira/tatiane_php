@@ -1,0 +1,52 @@
+html, body {
+  height: 100vh;
+  margin: 20px;
+  background-color: #f8f9fa;
+
+  display: flex;
+  justify-content: center; /* centraliza horizontal */
+  align-items: center;     /* centraliza vertical */
+  font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+.sidebar {
+  width: 380px;            /* largura fixa da barra lateral */
+  height: 350px;           /* altura fixa para exemplo */
+  background-color: #1e1e2f;
+  color: #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.sidebar h4 {
+  color: white;
+  font-weight: bold;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  color: #ccc;
+  text-decoration: none;
+  padding: 15px 22px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #3a3a55;
+  color: white;
+}
+
+.sidebar a.active {
+  color: white;
+}
