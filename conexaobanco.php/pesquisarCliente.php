@@ -4,7 +4,94 @@ require_once 'conexao.php';
 $conexao=conectarBanco();
 
 $busca=$_GET['busca']??'';
+?>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pesquisar Cliente</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+      text-align: center;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      display: inline-block;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    label {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1a252f;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    a {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #1c5980;
+    }
+  </style>
+</head>
+<body>
+
+<?php
 if(!$busca){
     ?>
     <form action="pesquisarCliente.php" method="GET">
@@ -32,6 +119,10 @@ $clientes=$stmt->fetchAll();
 if(!$clientes){
     die("ero: Nenhum cliente encontrado.");
 }
+$urlAnterior = $_SERVER['HTTP_REFERER'] ?? 'navegar.php'; 
+?>
+
+<button onclick="window.location.href='<?php echo $urlAnterior; ?>'">⬅ Voltar</button>
 ?>
 <table border="1">
     <tr>

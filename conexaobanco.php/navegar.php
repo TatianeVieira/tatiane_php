@@ -23,6 +23,8 @@
       <a href="deletarCliente.php" class="nav-link"><i class="bi bi-trash"></i> Deletar Cliente </a>
       <a href="inserirCliente.php" class="nav-link"><i class="bi bi-plus-square"></i> Inserir Cliente </a>
       <a href="listarClientes.php" class="nav-link"><i class="bi bi-list-check"></i> Listar Cliente </a>
+      <a href="pesquisarCliente.php" class="nav-link"><i class="bi bi-list-check"></i> pesquisar Cliente </a>
+
     </nav>
 
   </div>

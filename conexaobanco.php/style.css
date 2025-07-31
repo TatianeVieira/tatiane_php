@@ -1,5 +1,5 @@
 html, body {
-  height: 100vh;
+  height: 90vh;
   margin: 20px;
   background-color: #f8f9fa;
 
@@ -10,8 +10,8 @@ html, body {
 }
 
 .sidebar {
-  width: 380px;            /* largura fixa da barra lateral */
-  height: 350px;           /* altura fixa para exemplo */
+  width: 380px;            /* largura fixa da barra  */
+  height: 450px;           /* altura fixa para exemplo */
   background-color: #1e1e2f;
   color: #ccc;
   padding: 20px;

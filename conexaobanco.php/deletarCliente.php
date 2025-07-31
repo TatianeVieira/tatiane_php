@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excluir Cliente</title>
+    
     <style>
     /* Centralizar o conteúdo da página */
     body {
@@ -62,6 +63,12 @@
   </style>
 </head>
 <body>
+<?php
+$urlAnterior = $_SERVER['HTTP_REFERER'] ?? 'navegar.php';
+?>
+
+<button onclick="window.location.href='<?php echo $urlAnterior; ?>'"> Voltar</button>
+
     <h2>Excluir Cliente</h2>
     <form action="processarDelecao.php" method="POST">
         <label for="id">ID do Cliente:</label>

@@ -15,6 +15,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <style>
+        body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 30px;
+  text-align: center;
+}
+
+
+h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+table {
+  margin: 0 auto;
+  width: 90%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #2c3e50;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
+<?php
+    $urlAnterior = $_SERVER['HTTP_REFERER'] ?? 'navegar.php'; 
+    ?>
+
+    <button onclick="window.location.href='<?php echo $urlAnterior; ?>'"> Voltar</button>
+
     <h2>Lista de Clientes</h2>
     <table border="1">
         <tr>

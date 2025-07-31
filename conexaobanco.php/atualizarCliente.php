@@ -26,7 +26,14 @@ if($idCliente && is_numeric($idCliente)){
 } else {
     $msgErro="Digite o ID do cliente para buscar os dados.";
 }
+
 ?>
+<?php
+$urlAnterior = $_SERVER['HTTP_REFERER'] ?? 'navegar.php'; 
+?>
+
+<button onclick="window.location.href='<?php echo $urlAnterior; ?>'"> Voltar</button>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -40,7 +47,76 @@ if($idCliente && is_numeric($idCliente)){
     </script>
 </head>
 <body>
+
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f6fa;
+            padding: 20px;
+            color: #2f3640;
+        }
+
+        h2 {
+            text-align: center;
+            color: #273c75;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #ecf0f1;
+            transition: background-color 0.3s;
+        }
+
+        input[readonly] {
+            background-color: #dcdde1;
+            cursor: pointer;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color:rgb(50, 122, 189);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color:rgb(55, 91, 209);
+        }
+
+        p {
+            text-align: center;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
     <h2>Atualizar Cliente</h2>
+
 
     <!-- Se houver erro, exibe a mensagem e o campo de busca -->
      <?php if($msgErro): ?>

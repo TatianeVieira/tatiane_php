@@ -62,6 +62,13 @@
   </style>
 </head>
 <body>
+
+  <?php
+  $urlAnterior = $_SERVER['HTTP_REFERER'] ?? 'navegar.php'; // fallback se não houver
+  ?>
+
+  <button onclick="window.location.href='<?php echo $urlAnterior; ?>'"> Voltar</button>
+
     <h2>Cadastro de Cliente</h2>
     <form action="processarInsercao.php" method="POST">
         <label for="nome">Nome: </label>
