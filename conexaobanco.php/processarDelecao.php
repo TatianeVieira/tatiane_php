@@ -22,4 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         echo "Erro ao excluir cliente.";
     }
 }
-?>
+$urlAnterior = $_SERVER['HTTP_REFERER'] ?? 'navegar.php'; 
+    ?>
+
+    <button onclick="window.location.href='<?php echo $urlAnterior; ?>'"> Voltar</button>

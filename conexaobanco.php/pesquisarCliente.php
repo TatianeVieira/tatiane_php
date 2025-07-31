@@ -119,10 +119,6 @@ $clientes=$stmt->fetchAll();
 if(!$clientes){
     die("ero: Nenhum cliente encontrado.");
 }
-$urlAnterior = $_SERVER['HTTP_REFERER'] ?? 'navegar.php'; 
-?>
-
-<button onclick="window.location.href='<?php echo $urlAnterior; ?>'">⬅ Voltar</button>
 ?>
 <table border="1">
     <tr>
