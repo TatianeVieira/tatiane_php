@@ -1,5 +1,5 @@
 <?php
-require_once('conect.php');
+require_once('conecta.php');
 
 //obter os dados enviados pelo formulario
 $evento=$_POST['evento'];
