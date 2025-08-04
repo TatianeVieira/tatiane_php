@@ -25,7 +25,7 @@ if(!$resultado){
     <form enctype="multipart/form-data" action="upload.php" method="POST">
         <input type="hidden" name="MAX_FILE_SIZE" value="999999999"/>
         <input name="evento" type="text" placeholder="Nome do evento" />    
-        <input name="desccrica" type="text" placeholder="descricao" />        
+        <input name="descricao" type="text" placeholder="descricao" />        
         <input name="imagem" type="file"/>        
         <input type="submit" value="salvar" />            
     </form>
@@ -56,7 +56,7 @@ if(!$resultado){
             <a href="ver_imagens.php?id=<?php echo $arquivos['codigo'];?>">Ver imagens</a>
         </td>
         <td align="center">
-            <a href="excluir_imagens.php?id=<?php echo $arquivos['codigo'];?>">Excluir imagens</a>
+            <a href="excluir_imagem.php?id=<?php echo $arquivos['codigo'];?>">Excluir imagens</a>
         </td>
     </tr>
     <?php } ?>

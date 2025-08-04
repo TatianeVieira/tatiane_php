@@ -5,8 +5,8 @@ require_once('conecta.php');
 $evento=$_POST['evento'];
 $descricao=$_POST['descricao'];
 $imagem=$_FILES['imagem']['tmp_name'];
-$tamanhp=$_FILES['imagem']['size'];
-$tipo=$_FILES['evento']['type'];
+$tamanho=$_FILES['imagem']['size'];
+$tipo=$_FILES['imagem']['type'];
 $nome=$_FILES['imagem']['name'];
 
 //verifica se o arquivo foi enviado corretamente
@@ -17,9 +17,9 @@ if(!empty($imagem)&& $tamanho>0){
     fclose($fp);
 
     //protege contra problemas de caracteres no SQL
-    $conteudomysqli_real_escape_string($conexao,$conteudo);
+    $conteudo=mysqli_real_escape_string($conexao,$conteudo);
 
-    $queryInsercao = "INSERT INTO iamgens(evento,descricao,nome_imagem,tamanho_imagem,tipo_imagem,imagem) 
+    $queryInsercao = "INSERT INTO imagens(evento,descricao,nome_imagem,tamanho_imagem,tipo_imagem,imagem) 
     values('$evento', '$descricao', '$nome', '$tamanho', '$tipo', '$conteudo')";
     $resultado=mysqli_query($conexao, $queryInsercao);
 
