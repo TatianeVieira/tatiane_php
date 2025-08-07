@@ -42,24 +42,24 @@ function redimencionarImagem($imagem, $largura, $altura) {
     $username = 'root';
     $password = '';
 
-    try(
+    try{
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE_EXCEPITION);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
         //verifica se tem o arquivo foto 
-        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto']));
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['foto'])) {
 
             if($_FILES['foto']['error']==0){
                 $nome = $_POST['nome'];
                 $telefone = $_POST['telefone'];
-                $nomeFoto = $_FILES['foto']['nome'];
+                $nomeFoto = $_FILES['foto']['name'];
                 $tipofoto = $_FILES['foto']['type'];
 
                 //redimensiona a imagem
-                $foto = redimencionarImagem($_files['foto']['tmp_name'], 300, 400); //tpm_name é o caminho temporario
+                $foto = redimencionarImagem($_FILES['foto']['tmp_name'], 300, 400); //tpm_name é o caminho temporario
 
                 //insere no banco dados usando sql
-                $sql = "INSERT INTO funcionarios (nome, telefone, nome_foto, tipo_foto, foto values(:nome, :telefone, :nome_foto, :tipo_foto, :foto)";
+                $sql = "INSERT INTO funcionario (nome, telefone, nome_foto, tipo_foto, foto) values(:nome, :telefone, :nome_foto, :tipo_foto, :foto)";
                 $stmt = $pdo->prepare($sql); //prepara a query para evitar ataque
                 $stmt->bindParam(':nome', $nome); //liga os parametros as variaveis
                 $stmt->bindParam(':telefone', $telefone); //liga os parametros as variaveis
@@ -75,10 +75,20 @@ function redimencionarImagem($imagem, $largura, $altura) {
             }else{
                 echo "Erro ao fazer o UPLOAD da foto codigo:".$_FILES['foto']['error'];
             }
-    )catch(PDOException $e){
-        echo "Erro" .$e->getMessage;
+        }
+    }catch(PDOException $e){
+        echo "Erro" .$e->getMessage();
     }
-
-
-
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de imagem</title>
+</head>
+<body>
+    <h1>Lista de imagem</h1>
+    <a href="consulta_funcionario.php">Listar Funcionario</a>
+</body>
+</html>
