@@ -45,10 +45,10 @@
     <ul>
         <?php foreach($funcionarios as $funcionario): ?>
             <li>
-            <!--A linha abixo exibe o link para visualizar os detalhes do funcionario com base no id-->
-                <a href="visualizar_funcionario.php?id=<?$funcionario['id']?>">
+            <!--A linha abaixo exibe o link para visualizar os detalhes do funcionario com base no id-->
+                <a href="visualizar_funcionario.php?id=<?=$funcionario['id']?>">
                 <!--A linha abixo exibe o nome do funcionario-->
-                    <?=htmlespecialchars($funcionario['nome'])?>
+                    <?=htmlspecialchars($funcionario['nome'])?>
                 </a>
                 <!--formulario para excluir funcionarios-->
                 <form method="POST" style="display:inline;">
@@ -59,4 +59,5 @@
         <?php endforeach; ?>
     </ul>
 </body>
+<center> <address> Tatiane Vieira / Estudante / Tecnico em Deenvolvimento de Sistemas </address> </center>
 </html>
